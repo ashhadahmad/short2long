@@ -2,9 +2,23 @@
   "manifest_version": 3,
   "name": "Short2Long",
   "description": "View Shorts in Default Youtube Player",
-  "version": "1.0",
+  "version": "0.1.0",
+  "permissions": ["activeTab"],
+  "host_permissions": ["https://*.youtube.com/shorts/*"],
   "action": {
-    "default_popup": "hello.html",
-    "default_icon": "hello.png"
-  }
+    "default_icon": {
+      "16": "assets/logo.png",
+      "24": "assets/logo.png",
+      "16": "assets/logo.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": ["https://www.youtube.com/shorts/*"]
+    }
+  ]
 }
